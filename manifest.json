@@ -2,12 +2,16 @@
     "name": "Covinformare - Linking to reliable ",
     "description": "This is a test description",
     "version": "1.0",
-    "manifest_version": 3,
-    "permissions": ["activeTab", "geolocation", "notifications"],
+    "manifest_version": 2,
+    "permissions": ["activeTab", "geolocation", "notifications", "<all_urls>"],
     "background": {
         "service_worker": "background.js"
     },
-    "action": {
+    "browser_action": {
         "default_popup": "popup.html"
-    }
+    },
+    "content_scripts": [{
+        "matches": ["https://*/*"],
+        "js": ["content.js"]
+    }]
 }
