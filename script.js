@@ -1,4 +1,5 @@
-function scrapeText() {
+document.getElementById("test").addEventListener('click', () => {
+    
     function modifyDOM() {
         //You can play with your DOM here or check URL against your regex
         console.log('Tab script:');
@@ -14,24 +15,4 @@ function scrapeText() {
         console.log('Popup script:')
         console.log(results[0]);
     });
-}
-
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    console.log("OnUpdated")
-    scrapeText()
-});
-
-chrome.tabs.onCreated.addListener(function(tab) {        
-    console.log("HELLO")
-    /* var timestamp = new Date().getTime();
-    var id = 'myid' + timestamp;
-    chrome.notifications.create(id, {
-        type: 'basic',
-        iconUrl: './robot.jpeg',
-        title: 'notification title',
-        message: 'notification message',
-        priority: 2
-    },
-    function () {}) */
-    scrapeText()
 });
