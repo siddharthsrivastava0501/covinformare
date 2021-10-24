@@ -1,3 +1,8 @@
+/* 
+This is the JavaScript page for the frontend. It is responsible for making sure that the links on the front-end
+are dynamically updated based on user location
+*/
+
 //Initialising a bunch of variables that facilitate the transfer of data from one API call to another
 ip = "";
 ipsuccess = false;
@@ -10,6 +15,8 @@ $.ajax({
     type: "GET",
     success: function(textIP) {
         ip = textIP;
+
+        //Other part of the API call; this one provides location upon request if given an IP address
         countryURL = "https://ipapi.co/" + ip + "/json/";
         $.ajax({
             url: countryURL,
@@ -17,7 +24,7 @@ $.ajax({
             success: function(json) {
                 country = json.country_code;
 
-
+                //These values will be filled with the appropriate URLs, which will then fill the <a> tags in the HTML
                 generalURL = "";
                 vaxURL = "";
                 travelURL = "";
@@ -54,6 +61,7 @@ $.ajax({
                         travelURL = "https://covid19.who.int/measures";
                 }
 
+                //Push the selected URLs into the HTML
                 $("a#general").attr("href", generalURL);
                 $("a#vaccines").attr("href", vaxURL);
                 $("a#travel").attr("href", travelURL);
