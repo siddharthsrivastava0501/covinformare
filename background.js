@@ -53,7 +53,7 @@ function BBAlgorithm(text) {
         appearences+=value;
     }
 
-    if(appearences<6){
+    if(appearences<4){
         return "No covid";
     }
 
