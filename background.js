@@ -125,8 +125,8 @@ function createNotification(category) {
                 chrome.notifications.create(id, {
                     type: 'basic',
                     iconUrl: './robot.jpeg',
-                    title: 'notification title',
-                    message: 'notification message',
+                    title: 'Your site seems to contain info on Covid!',
+                    message: 'Click here for reliable information from trusted sources relevant to you.',
                     priority: 2
                 })
             })
