@@ -126,16 +126,17 @@ function createNotification(category) {
                         executed = false
                         console.log("fixed")
                     }, 3000)
+
                     chrome.notifications.create(id, {
                         type: 'basic',
-                        iconUrl: './robot.jpeg',
-                        title: 'notification title',
-                        message: 'giga kek message',
+                        iconUrl: 'imgs/robot.png',
+                        title: 'Looking for COVID info?',
+                        message: 'Click here for reliable information from trusted sources relevant to you.',
                         priority: 2
                     })
-                }
-            })
+            }
         })
+    })
     })
 }
 
