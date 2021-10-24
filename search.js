@@ -29,7 +29,7 @@ var keywords1 = new Object();
 keywords1 = {"covid" : 0, "covid-19" : 0, "covid19" : 0, "coronavirus" : 0, "corona" : 0, "sars-cov" : 0, "sars-cov19" : 0};
 
 var keywords2 = new Object();
-keywords2 = {"vaccine" : 0, "vaccines" : 0, "5g" : 0,"pfizer-biontech" : 0, "pfizer/biontech" : 0, "biontech" : 0, "pfizer" : 0, "moderna" : 0, "astrazeneca" : 0, "sputnik" : 0, "certificate" : 0, "sinopharm" : 0, "dose" : 0, "doses" : 0, "mask" : 0, "masks" : 0, "day" : 0, "days" : 0, "test" : 0, "quarantine" : 0, "isolation" : 0};
+keywords2 = {"vaccine" : 0, "vaccines" : 0, "5g" : 0,"pfizer-biontech" : 0, "pfizer/biontech" : 0, "biontech" : 0, "pfizer" : 0, "moderna" : 0, "astrazeneca" : 0, "sputnik" : 0, "certificate" : 0, "sinopharm" : 0, "dose" : 0, "doses" : 0, "mask" : 0, "masks" : 0, "day" : 0, "days" : 0, "test" : 0, "tests": 0, "quarantine" : 0, "isolation" : 0};
 
 var keywords3 = new Object();
 keywords3 = {"bill" : 0, "johnson" : 0, "side" : 0, "face" : 0};
@@ -85,7 +85,7 @@ categories["vaccine"]=keywords2["vaccine"]+keywords2["vaccines"]+keywords2["pfiz
 
 categories["masks"]=keywords2["mask"]+keywords2["masks"]+keywords3["face"];
 
-categories["selfisolation"]=keywords2["day"]+keywords2["days"]+keywords2["quarantine"]+keywords2["isolation"]+keywords2["test"];
+categories["selfisolation"]=keywords2["day"]+keywords2["days"]+keywords2["quarantine"]+keywords2["isolation"]+keywords2["test"]+keywords2["tests"];
 
 var max = categories["general"];
 var category = "general";
