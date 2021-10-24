@@ -155,7 +155,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
         }, (results) => {
             //Here we have just the innerHTML and not DOM structure
-            const whitelist = ['.gov', 'nhs.uk', 'canada.ca', 'gov.au', 'govt.nz', 'who.int']
+            const whitelist = ['.gov', 'nhs.uk', 'canada.ca', 'gov.au', 'govt.nz', 'who.int, gc.ca']
             var flag = false
             whitelist.forEach((domain) => {
                 flag = flag || (tab.url).includes(domain)
