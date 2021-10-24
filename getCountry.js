@@ -48,6 +48,10 @@ $.ajax({
                         vaxURL = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/vaccines.html";
                         travelURL = "https://travel.gc.ca/travel-covid";
                         break;
+                    default :
+                        generalURL = "https://covid19.who.int/";
+                        vaxURL = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/covid-19-vaccines";
+                        travelURL = "https://covid19.who.int/measures";
                 }
 
                 $("a#general").attr("href", generalURL);
