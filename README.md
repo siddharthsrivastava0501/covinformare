@@ -41,4 +41,4 @@ Furthermore, a majority of the team had very little or no experience with hackat
 The extension only works for the US, the UK, Canada, Australia, and New Zealand — users from other countries get directed to the WHO website instead of their local government. Potential next steps could include expanding into more countries, or potentially adding compatibility for more languages, as it is only designed to work on websites in English for now.
 
 ### Bianca Sandu, Julius Weisser, Benedek Der, Siddharth Srivastava
-##### (COVID image provided by the CDC via unsplash)
+##### (COVID image provided by the CDC and Fusion Medical Animation via Unsplash)
