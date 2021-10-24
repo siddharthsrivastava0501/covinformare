@@ -7,9 +7,9 @@ function BBAlgorithm(text) {
     function remove_stopwords(arr) {
         res = []
         for(i=0;i<arr.length;i++){
-        if(!stopwords.includes(arr[i])) {
-            res.push(arr[i])
-        }
+            if (!stopwords.includes(arr[i])) {
+                res.push(arr[i])
+            }
         }
         return res 
     }
@@ -101,6 +101,7 @@ function BBAlgorithm(text) {
 }
 
 var str = "";
+var executed = false;
 
 function createNotification(category) {
     fetch('https://api.ipify.org')
@@ -117,49 +118,26 @@ function createNotification(category) {
             .then((res) => res.text())            
             .then((res) => {
                 str = res
-                console.log(country)
                 var timestamp = new Date().getTime();
                 var id = 'myid' + timestamp
-                
-                
-                chrome.notifications.create(id, {
-                    type: 'basic',
-                    iconUrl: './robot.jpeg',
-                    title: 'Your site seems to contain info on Covid!',
-                    message: 'Click here for reliable information from trusted sources relevant to you.',
-                    priority: 2
-                })
-            })
-        })
-    })
+                if (executed == false) {
+                    executed = true
+                    setTimeout(() => {
+                        executed = false
+                        console.log("fixed")
+                    }, 3000)
 
-
-    /* $.ajax({
-        url: "https://api.ipify.org",
-        type: "GET",
-        success: function(textIP) {
-            ip = textIP;
-            countryURL = "https://ipapi.co/" + ip + "/json/";
-            $.ajax({
-                url: countryURL,
-                type: "GET",
-                success: function(json) {
-                    country = json.country_code;
-                    console.log(country)
-                    // Create the actual notification
-                    var timestamp = new Date().getTime();
-                    var id = 'myid' + timestamp
                     chrome.notifications.create(id, {
                         type: 'basic',
-                        iconUrl: './robot.jpeg',
-                        title: 'notification title',
-                        message: 'notification message',
+                        iconUrl: 'imgs/robot.png',
+                        title: 'Looking for COVID info?',
+                        message: 'Click here for reliable information from trusted sources relevant to you.',
                         priority: 2
-                    }) 
-                }
-            })
-        }  
-    }) */
+                    })
+            }
+        })
+    })
+    })
 }
 
 chrome.notifications.onClicked.addListener(() => {
@@ -187,6 +165,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             var keyword = BBAlgorithm(results[0])
             console.log(tab.url)
             if (keyword != "No covid" && !flag) {
+                console.log("more than once")
                 createNotification(keyword)
             }
             
