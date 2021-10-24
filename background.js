@@ -120,6 +120,8 @@ function createNotification(category) {
                 console.log(country)
                 var timestamp = new Date().getTime();
                 var id = 'myid' + timestamp
+                
+                
                 chrome.notifications.create(id, {
                     type: 'basic',
                     iconUrl: './robot.jpeg',
