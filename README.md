@@ -1,6 +1,8 @@
-# covinformare
+# COVinformare - Reliable Information Saves Lives
 
-This chrome extension is an attempt to curb the spread of COVID-related online misinformation. Inspired by the words "COVID" and "informare" — "information" in Romanian — the extension works in the background to detect if any given website is principally concerned with the pandemic. If found to be the case, the extension sends a notification linking to an article from the local health authorities of the user as determined by a basic text processing algorithm that attempts to determine the broad theme of the website in question in order to show  the most relevant information.
+!["Image of a coronavirus"](imgs/readmeimage.jpg)
+
+This chrome extension is an attempt to curb the spread of COVID-related online misinformation. Inspired by the words "COVID" and "informare" — "to inform" in Romanian — the extension works in the background to detect if any given website is principally concerned with the pandemic. If found to be the case, the extension sends a notification linking to an article from the local health authorities of the user as determined by a basic text processing algorithm that attempts to determine the broad theme of the website in question in order to show  the most relevant information.
 
 By doing this, our team hopes that people who are somewhat on the fence when it comes to this topic have a better chance of making informed decisions in the interest of public health and to stop them from falling into conspiracy theories, contributing to the global effort to tackel the Covid-19 pandemic.
 
@@ -40,4 +42,4 @@ Furthermore, a majority of the team had very little or no experience with hackat
 The extension only works for the US, the UK, Canada, Australia, and New Zealand — users from other countries get directed to the WHO website instead of their local government. Potential next steps could include expanding into more countries, or potentially adding compatibility for more languages, as it is only designed to work on websites in English for now.
 
 ### Bianca Sandu, Julius Weisser, Benedek Der, Siddharth Srivastava
-###(COVID image provided by the CDC via unsplash)
+##### (Images provided by the CDC and Fusion Medical Animation via Unsplash)

@@ -1,3 +1,8 @@
+/* 
+This is the JavaScript page for the frontend. It is responsible for making sure that the links on the front-end
+are dynamically updated based on user location
+*/
+
 //Initialising a bunch of variables that facilitate the transfer of data from one API call to another
 ip = "";
 ipsuccess = false;
