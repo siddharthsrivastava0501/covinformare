@@ -25,6 +25,12 @@ Apart from this, when the the extension gets opened directly in the extensions b
 ## How we built it:
 We began by conducting a search about the feasibility of our idea. After concluding that the task is doable, we divided the project into four main areas: frontend, backend, text processing and keyword search & categorisation. 
 
+###Frontend
+This part consists of HTML, CSS, and JavaScript, and dynamically updates link URLs based on user location. The popup.html also provides a central hub for locally sourced information on a selection of topics in a way that is less invasive than the notifications.
+
+###Backend
+The backend API written in Flask and deployed via Heroku takes topics and country codes as input, and returns a relevant URL. This means that the sources of information can be updated without the user having to update anything, and makes the process of changing and adding new countries and URLs easier and more flexible.
+
 ## Challenges we ran into:
 One of the most difficult parts of the project was navigating the permissions constraints of Google Chrome extensions, as the browser is quite limiting in what it allows its extensions to do.
 
