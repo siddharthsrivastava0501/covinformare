@@ -31,13 +31,19 @@ This part consists of HTML, CSS, and JavaScript, and dynamically updates link UR
 ###Backend
 The backend API written in Flask and deployed via Heroku takes topics and country codes as input, and returns a relevant URL. This means that the sources of information can be updated without the user having to update anything, and makes the process of changing and adding new countries and URLs easier and more flexible.
 
+###Text processing and categorization
+The processing of text happens on the Frontend, using JavaScript. The DOM-API was used to select text from the body and remove the HTML tags followed by the removal of punctuation and stopwords to make the search easier and more efficient. At first, we searched for the word coronavirus or its synonims and if enough occurences were found, we searched for various keywords regarding the 4 main categories described above. By calculating the sum of appearences of keywords corresponding to each category, the algorithm can determine which category fits the text the most.
+
+###Testing
+
+
 ## Challenges we ran into:
 One of the most difficult parts of the project was navigating the permissions constraints of Google Chrome extensions, as the browser is quite limiting in what it allows its extensions to do.
 
 This improves security of course, but it also makes creation significantly more difficult, especially because a majority of the team has little to no experience with making browser extensions.
 
 ## Accomplishments we're proud of:
-Our team is quite proud of the fact that we were able to make a custom Flask API in 24 hours, for which team members had to quickly learn and understand a technology that was almost entirely new to them.
+Our team is proud of the fact that we were able to make a custom Flask API in 24 hours, for which team members had to quickly learn and understand a technology that was almost entirely new to them. We also feel delighted that we have developed a piece of software that is designed to counter the spread of misinformation (especially regarding such a crucial topic), one of today's most concerning problems in the online world.
 
 ## What we learned:
 As mentioned in the previous section, members of the team had to become acquainted with Flask in order to create an API.
@@ -45,7 +51,7 @@ As mentioned in the previous section, members of the team had to become acquaint
 Furthermore, a majority of the team had very little or no experience with hackathons, and gained a great deal of experience when it comes to working as a team and applying the fairly theoretical knowledge gained at university, that we usually only get to do individually of each other, and in what could be described as "clinical conditions".
 
 ## Whats next:
-The extension only works for the US, the UK, Canada, Australia, and New Zealand — users from other countries get directed to the WHO website instead of their local government. Potential next steps could include expanding into more countries, or potentially adding compatibility for more languages, as it is only designed to work on websites in English for now.
+The extension only works for the US, the UK, Canada, Australia, and New Zealand — users from other countries get directed to the WHO website instead of their local government. Potential next steps could include expanding into more countries, or potentially adding compatibility for more languages, as it is only designed to work on websites in English for now. This can be easily done as it would only require adding extra keywords and websites to the extension.
 
 ### Bianca Sandu, Julius Weisser, Benedek Der, Siddharth Srivastava
 ##### (Images provided by the CDC and Fusion Medical Animation via Unsplash)
