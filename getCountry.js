@@ -15,7 +15,8 @@ $.ajax({
     type: "GET",
     success: function(textIP) {
         ip = textIP;
-        // Use another API to get user location
+
+        //Other part of the API call; this one provides location upon request if given an IP address
         countryURL = "https://ipapi.co/" + ip + "/json/";
         $.ajax({
             url: countryURL,
@@ -23,6 +24,7 @@ $.ajax({
             success: function(json) {
                 country = json.country_code;
 
+                //These values will be filled with the appropriate URLs, which will then fill the <a> tags in the HTML
                 generalURL = "";
                 vaxURL = "";
                 travelURL = "";
@@ -59,6 +61,7 @@ $.ajax({
                         travelURL = "https://covid19.who.int/measures";
                 }
 
+                //Push the selected URLs into the HTML
                 $("a#general").attr("href", generalURL);
                 $("a#vaccines").attr("href", vaxURL);
                 $("a#travel").attr("href", travelURL);
