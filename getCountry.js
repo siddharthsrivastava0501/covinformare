@@ -43,6 +43,11 @@ $.ajax({
                         vaxURL = "https://covid19.govt.nz/covid-19-vaccines/";
                         travelURL = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-information-specific-audiences/covid-19-advice-travellers";
                         break;
+                    case "CA":
+                        generalURL = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html";
+                        vaxURL = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/vaccines.html";
+                        travelURL = "https://travel.gc.ca/travel-covid";
+                        break;
                 }
 
                 $("a#general").attr("href", generalURL);
