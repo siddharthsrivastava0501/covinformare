@@ -1,6 +1,7 @@
 //Get the text somehow ??
 stopwords = ['i','me','my','myself','we','our','ours','ourselves','you','your','yours','yourself','yourselves','he','him','his','himself','she','her','hers','herself','it','its','itself','they','them','their','theirs','themselves','what','which','who','whom','this','that','these','those','am','is','are','was','were','be','been','being','have','has','had','having','do','does','did','doing','a','an','the','and','but','if','or','because','as','until','while','of','at','by','for','with','about','against','between','into','through','during','before','after','above','below','to','from','up','down','in','out','on','off','over','under','again','further','then','once','here','there','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','s','t','can','will','just','don','should','now']
-var regex = /[!"#$%'()*+,.:;<=>?@[\]^_`{|}~0234678]/g; 
+var regex = /[!"#$%'()*+,.:;<=>?@[\]^_`{|}~0234678]/g;
+var regex2 = /\n/g; 
 function remove_stopwords(arr) {
     res = []
     for(i=0;i<arr.length;i++){
@@ -13,13 +14,20 @@ function remove_stopwords(arr) {
 function removePunctuation(string) {
     return string.replace(regex, '');
   }
+function removeNewLine(string) {
+    return string.replace(regex2, '');
+  }
 var text = " for covid-19 are important side effects because vaccine mask ";
 text = text.toLowerCase();
 text = removePunctuation(text);
+text = removeNewLine(text);
 text = text.trim();
 var textarr = text.split(' ');
 textarr = remove_stopwords(textarr);
 console.log(textarr);
+for(i=0; i<textarr.length; i++){
+
+}
 var keywords1 = new Object();
 keywords1 = {"covid" : 0, "covid-19" : 0, "covid19" : 0, "coronavirus" : 0, "corona" : 0, "sars-cov" : 0, "sars-cov19" : 0};
 
