@@ -10,14 +10,12 @@ $.ajax({
     type: "GET",
     success: function(textIP) {
         ip = textIP;
-        console.log(textIP); //Remove when done
         countryURL = "https://ipapi.co/" + ip + "/json/";
         $.ajax({
             url: countryURL,
             type: "GET",
             success: function(json) {
                 country = json.country_code;
-                console.log(country); //Remove when done
 
 
                 generalURL = "";
@@ -34,8 +32,26 @@ $.ajax({
                         generalURL = "https://www.cdc.gov/coronavirus/2019-ncov/";
                         vaxURL = "https://www.cdc.gov/coronavirus/2019-ncov/vaccines/";
                         travelURL = "https://www.cdc.gov/coronavirus/2019-ncov/travelers/";
-                        console.log("Thing");
                         break;
+                    case "AU":
+                        generalURL = "https://covid19inlanguage.homeaffairs.gov.au/";
+                        vaxURL = "https://www.health.gov.au/initiatives-and-programs/covid-19-vaccines/covid-19-vaccines";
+                        travelURL = "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/coronavirus-covid-19-travel-and-restrictions/coronavirus-covid-19-advice-for-international-travellers";
+                        break;
+                    case "NZ":
+                        generalURL = "https://covid19.govt.nz/";
+                        vaxURL = "https://covid19.govt.nz/covid-19-vaccines/";
+                        travelURL = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-information-specific-audiences/covid-19-advice-travellers";
+                        break;
+                    case "CA":
+                        generalURL = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html";
+                        vaxURL = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/vaccines.html";
+                        travelURL = "https://travel.gc.ca/travel-covid";
+                        break;
+                    default :
+                        generalURL = "https://covid19.who.int/";
+                        vaxURL = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/covid-19-vaccines";
+                        travelURL = "https://covid19.who.int/measures";
                 }
 
                 $("a#general").attr("href", generalURL);
@@ -45,28 +61,3 @@ $.ajax({
         });
     }
 });
-
-
-
-/* fetch(countryURL)
-.then((res) => res.json())
-.then((json) => {
-    ipsuccess = true;
-    country = json.country_code;
-}) */
-//Take IP address and get country; takes IP address and gives back JSON object with, among other things, the country code.
-
-
-
-/* const country = () => {
-    $.ajax({
-        url: countryURL,
-        type: "GET",
-        success: function(json) {
-            console.log(country); //Remove when done
-            countryCode = json.country_code;
-        }
-    });
-    return countryCode;
-}; */
-

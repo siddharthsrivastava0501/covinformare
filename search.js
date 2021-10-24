@@ -15,6 +15,35 @@ export default function BBAlgorithm(text) {
     }
     function removePunctuation(string) {
         return string.replace(regex, '');
+    return res 
+}
+function removePunctuation(string) {
+    return string.replace(regex, '');
+  }
+function removeNewLine(string) {
+    return string.replace(regex2, ' ');
+  }
+var text = "";
+text = text.toLowerCase();
+text = removePunctuation(text);
+text = removeNewLine(text);
+text = text.trim();
+var textarr = text.split(' ');
+textarr = remove_stopwords(textarr);
+console.log(textarr);
+var keywords1 = new Object();
+keywords1 = {"covid" : 0, "covid-19" : 0, "covid19" : 0, "coronavirus" : 0, "corona" : 0, "sars-cov-2" : 0, "sars-cov19" : 0};
+
+var keywords2 = new Object();
+keywords2 = {"vaccine" : 0, "vaccines" : 0, "5g" : 0,"pfizer-biontech" : 0, "pfizer/biontech" : 0, "biontech" : 0, "pfizer" : 0, "moderna" : 0, "astrazeneca" : 0, "sputnik" : 0, "certificate" : 0, "sinopharm" : 0, "dose" : 0, "doses" : 0, "mask" : 0, "masks" : 0, "day" : 0, "days" : 0, "test" : 0, "tests": 0, "quarantine" : 0, "isolation" : 0};
+
+var keywords3 = new Object();
+keywords3 = {"bill" : 0, "johnson" : 0, "side" : 0, "face" : 0};
+var textarr2 = [];
+var j=0;
+for(var i = 0; i<textarr.length; i++){
+    if(textarr[i] in keywords1){
+        keywords1[textarr[i]]+=1;
     }
     function removeNewLine(string) {
         return string.replace(regex2, ' ');
@@ -87,7 +116,7 @@ export default function BBAlgorithm(text) {
 
     categories["masks"]=keywords2["mask"]+keywords2["masks"]+keywords3["face"];
 
-    categories["selfisolation"]=keywords2["day"]+keywords2["days"]+keywords2["quarantine"]+keywords2["isolation"]+keywords2["test"];
+    categories["selfisolation"]=keywords2["day"]+keywords2["days"]+keywords2["quarantine"]+keywords2["isolation"]+keywords2["test"]+keywords2["tests"];
 
     var max = categories["general"];
     var category = "general";
