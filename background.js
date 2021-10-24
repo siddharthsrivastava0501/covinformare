@@ -174,7 +174,7 @@ function createNotification(category) {
                     executed = true
                     setTimeout(() => {
                         executed = false
-                        console.log("fixed")
+                        //console.log("fixed")
                     }, 3000)
 
                     chrome.notifications.create(id, {
