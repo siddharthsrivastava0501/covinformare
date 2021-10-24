@@ -2,6 +2,8 @@
 
 !["Image of a coronavirus"](imgs/readmeimage.jpg)
 
+This chrome extension is an attempt to curb the spread of COVID-related online misinformation. Inspired by the words "COVID" and "informare" — "information" in Romanian — the extension works in the background to detect if any given website is principally concerned with the pandemic. If found to be the case, the extension sends a notification linking to an article from the local health authorities of the user as determined by a text processing algorithm that attempts to determine the broad theme of the website in question in order to show  the most relevant information.
+
 This chrome extension is an attempt to curb the spread of COVID-related online misinformation. Inspired by the words "COVID" and "informare" — "to inform" in Romanian — the extension works in the background to detect if any given website is principally concerned with the pandemic. If found to be the case, the extension sends a notification linking to an article from the local health authorities of the user as determined by a basic text processing algorithm that attempts to determine the broad theme of the website in question in order to show  the most relevant information.
 
 By doing this, our team hopes that people who are somewhat on the fence when it comes to this topic have a better chance of making informed decisions in the interest of public health and to stop them from falling into conspiracy theories, contributing to the global effort to tackel the Covid-19 pandemic.
