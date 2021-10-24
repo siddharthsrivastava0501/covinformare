@@ -1,3 +1,7 @@
+/* 
+    This file runs in the background. It basically has a bunch of listeners that update whenever the user
+    does actions in the browser. 
+*/
 function BBAlgorithm(text) {
     //console.log("RUNNING")
     const returnString = ""
@@ -104,22 +108,30 @@ var str = "";
 var executed = false;
 
 function createNotification(category) {
+    // Get the IP address 
     fetch('https://api.ipify.org')
     .then((res) => res.text())
     .then((ip) => {
         countryURL = "https://ipapi.co/" + ip + "/json/"; 
+
+        // Use the IP address to get which country the user is connecting from
         fetch(countryURL)
         .then((res) => res.json())
         .then((res) => {
+
+            // Using the country, we fetch from our API to get the most relevant links
             country = res.country_code;
             url = 'https://covinformare-backend.herokuapp.com/' + country + '/' + category;
-            console.log(url)
+
             fetch(url)
             .then((res) => res.text())            
             .then((res) => {
                 str = res
+                // Using this country, we send a notification to the user 
                 var timestamp = new Date().getTime();
                 var id = 'myid' + timestamp
+
+                // This timer is such that multiple notifications are not sent within 3 seconds of each other
                 if (executed == false) {
                     executed = true
                     setTimeout(() => {
@@ -134,38 +146,39 @@ function createNotification(category) {
                         message: 'Click here for reliable information from trusted sources relevant to you.',
                         priority: 2
                     })
-            }
+                }
+            })
         })
-    })
     })
 }
 
 chrome.notifications.onClicked.addListener(() => {
+    // This is so that each notification has the appropriate URL to redirect the user to
     chrome.tabs.create({url: str})
 })
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         function modifyDOM() {
-            //You can play with your DOM here or check URL against your regex
             return document.body.innerText;
         }
 
-        //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
+        // Whenever each tab is updated (i.e. the URL changes), we get the text of the body
         chrome.tabs.executeScript({
-            code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
+            code: '(' + modifyDOM + ')();' 
         }, (results) => {
-            //Here we have just the innerHTML and not DOM structure
+
+            // Using this, we check if the URL of the tab is from our whitelisted sources, in which case we don't run our notification
+            // as these sources are already trusted
             const whitelist = ['.gov', 'nhs.uk', 'canada.ca', 'gov.au', 'govt.nz', 'who.int, gc.ca']
             var flag = false
             whitelist.forEach((domain) => {
                 flag = flag || (tab.url).includes(domain)
             })
 
-            console.log('Popup script:')
+            // We use our string search algorithm to extract the keyword
             var keyword = BBAlgorithm(results[0])
-            console.log(tab.url)
-            if (keyword != "No covid" && !flag) {
-                console.log("more than once")
+            if (keyword != "No covid" && !flag) {   
+                // If the article is relevant to COVID and NOT from one of our trusted sources, we ping our notification 
                 createNotification(keyword)
             }
             
