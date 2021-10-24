@@ -21,6 +21,7 @@ A system notification is then generated, which, when clicked, opens a new tab to
 Apart from this, when the the extension gets opened directly in the extensions bar, the user will be provided with links to the local health authority's sites providing information about vaccination, face covering and the virus in general.
 
 ## How we built it:
+We began by conducting a search about the feasibility of our idea. After concluding that the task is doable, we divided the project into four main areas: frontend, backend, text processing and keyword search & categorisation. 
 
 ## Challenges we ran into:
 One of the most difficult parts of the project was navigating the permissions constraints of Google Chrome extensions, as the browser is quite limiting in what it allows its extensions to do.
